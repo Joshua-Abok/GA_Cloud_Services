@@ -1,0 +1,4 @@
+pytest 
+click
+lint
+pytest-cov
