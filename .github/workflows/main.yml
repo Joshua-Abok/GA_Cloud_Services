@@ -9,12 +9,8 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.10.14
-    - name: Install dependencies
+    - name: Install dependencies, Lint, and Test
       run: |
-        make install
-    - name: Lint
-      run: |
-        make lint
-    - name: Test
-      run: |
-        make test
+        make target
+
+      

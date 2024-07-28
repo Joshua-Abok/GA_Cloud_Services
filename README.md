@@ -20,28 +20,33 @@ This repository contains a Python project for GA Cloud Services. The project is 
 - `pip` (Python package installer)
 - `make` (build automation tool)
 
-## Installation
+## Installation, Linting, and Testing
 
-To install the required dependencies, run the following command:
+This command will sequentially execute the following steps:
 
-```sh
-make install
-````
+1. `Upgrade pip` and `install all dependencies` specified in `requirements.txt`.
+2. `Lint the code using pylint` with specific options to disable certain warnings and messages (R, C) for the hello.py file.
+3. `Run the tests with pytest` and generate a coverage report for the hello.py file.
 
-## Linting
-
-This command will run pylint with specific options to disable certain warnings and messages (R, C) for the hello.py file:
+To install the required dependencies, lint the code, and run the tests, run the command:
 
 ```sh
-make lint
+make target
 ```
 
-## Testing
-This command will run pytest with verbose output and include a code coverage report for the hello.py file.
-To run the tests with pytest and generate a coverage report, execute:
+## Makefile changed 
 
-```sh
-make test
+```bash
+target: install lint test
+
+install: 
+	pip install --upgrade pip && pip install -r requirements.txt
+
+lint: 
+	pylint --disable=R,C hello.py
+
+test: 
+	python -m pytest -vv --cov=hello test_hello.py
 ```
 
 ## Continuous Integration
@@ -63,26 +68,13 @@ The project is configured with GitHub Actions for continuous integration. The wo
     python-version: 3.10.14
 ```
 
-#### Install dependencies:
+#### Install dependencies lint, and test:
 ```bash 
-- name: Install dependencies
+- name: Install dependencies, Lint, and Test
   run: |
-    make install
+    make target
 ```
 
-#### Lint the code:
-```bash 
-- name: Lint
-  run: |
-    make lint
-```
-
-#### Run tests:
-```bash 
-- name: Test
-  run: |
-    make test
-```
 The workflow ensures that on every push, the code is checked out, the Python environment is set up, dependencies are installed, the code is linted, and the tests are executed.
 
 ## License
