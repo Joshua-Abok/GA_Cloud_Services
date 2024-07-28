@@ -16,7 +16,7 @@ This repository contains a Python project for GA Cloud Services. The project is 
 
 ## Prerequisites
 
-- Python 3.10.12
+- Python 3.10.14
 - `pip` (Python package installer)
 - `make` (build automation tool)
 
@@ -55,12 +55,12 @@ The project is configured with GitHub Actions for continuous integration. The wo
 - uses: actions/checkout@v2
 ```
 
-#### Set up Python 3.10.12:
+#### Set up Python 3.10.14:
 ```bash 
-- name: Set up Python 3.10.12
+- name: Set up Python 3.10.14
   uses: actions/setup-python@v1
   with:
-    python-version: 3.10.12
+    python-version: 3.10.14
 ```
 
 #### Install dependencies:
