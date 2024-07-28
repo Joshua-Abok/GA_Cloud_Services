@@ -5,7 +5,6 @@ This repository contains a Python project for GA Cloud Services. The project is 
 ## Project Structure
 
 
-- `__pycache__/`: Directory containing compiled Python files.
 - `.github/workflows/main.yml`: GitHub Actions workflow configuration.
 - `.coverage`: Coverage report file.
 - `.gitignore`: Specifies files and directories to be ignored by git.
