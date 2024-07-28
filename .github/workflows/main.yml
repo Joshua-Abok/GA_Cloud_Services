@@ -1,4 +1,4 @@
-name: Azure Python 3.10.12
+name: Azure Python 3.10.14
 on: [push]
 jobs:
   build:
